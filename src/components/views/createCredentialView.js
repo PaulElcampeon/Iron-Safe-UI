@@ -33,8 +33,15 @@ export class CreateCredentialView extends React.Component {
                 <h1>Value</h1>
                 <input type='text' name='value' />
                 <input type='submit' value="Create" onChange={this.handleChange} onClick={this.onClick}/>
+                {this.props.message && this.props.message}
             </div>
         )
+    }
+}
+
+export const mapStateToProps = (state) => {
+    return {
+        message: state.genericMessage
     }
 }
 

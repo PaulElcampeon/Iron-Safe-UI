@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export const ImageButton = (props) => {
     const {iconPath, onClickIcon} = props;
     return(

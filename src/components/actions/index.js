@@ -88,7 +88,7 @@ export const loggedInAction = (loggedIn) => {
     }
 }
 
-export const activeViewAction = (view) => {
+export const updateActiveView = (view) => {
     return {
         type: ACTIVE_VIEW,
         activeView: view

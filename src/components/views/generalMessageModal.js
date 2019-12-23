@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { resetMessage } from '../actions/index';
+import { updateMessage } from '../actions/index';
 
-const GeneralMessageModal = () => {
-    return(
-        <div>
-            <h1>{this.props.message}</h1>
-            <button onClick={this.props.resetMessage}>Ok</button>
-        </div>
-    )
+export class GeneralMessageModal extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return(
+            <div>
+                {
+                this.props.message && (
+                    <div>
+                        <h1>{this.props.message}</h1>
+                        <button onClick={this.props.resetMessage}>Ok</button>
+                    </div>
+                    )
+                }
+            </div>
+        )
+    }
 }
 
 export const mapStateToProps = (state) => {
@@ -20,7 +32,7 @@ export const mapStateToProps = (state) => {
 export const mapDispatchToProps = (dispatch) => {
     return {
         resetMessage: () => {
-            dispatch(resetMessage())
+            dispatch(updateMessage(undefined))
         }
     }
 }

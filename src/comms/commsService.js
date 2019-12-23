@@ -4,7 +4,7 @@ export const addCredential = (credential, token) => {
         method: 'post',
         body: JSON.stringify(credential),
         headers: {
-            'Accept': 'application/json',
+            'Accept': 'text/html',
             'Content-Type': 'application/json'
         }
     })
@@ -16,7 +16,7 @@ export const removeCredential = (credential, token) => {
         method: 'delete',
         body: JSON.stringify(credential),
         headers: {
-            'Accept': 'application/json',
+            'Accept': 'text/html',
             'Content-Type': 'application/json'
         }
     })
@@ -52,7 +52,7 @@ export const attemptRegistration = (credential) => {
         method: 'post',
         body: JSON.stringify(credential),
         headers: {
-            'Accept': 'application/json',
+            'Accept': 'text/html',
             'Content-Type': 'application/json'
         }
     })

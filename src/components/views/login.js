@@ -38,6 +38,7 @@ export class Login extends React.Component {
                             <UserTextInput handleChange={this.handleChange} label="Email" type="email" />
                             <UserTextInput handleChange={this.handleChange} label="Password" type="password" />
                             <input type="submit" onClick={this.onClick} />
+                            {this.props.message && this.props.message}
                             <GeneralLink path="register" text="Register" />
                         </div>
                     )
@@ -49,7 +50,8 @@ export class Login extends React.Component {
 
 export const mapStateToProps = (state) => {
     return {
-        activeView: state.activeView
+        activeView: state.activeView,
+        message: state.genericMessage
     }
 }
 

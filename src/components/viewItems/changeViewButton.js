@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const ChangeViewButton = (props) => {
     const {onClick, dataRole, value} = props;
     return (

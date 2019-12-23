@@ -34,6 +34,7 @@ export class Register extends React.Component {
                 <UserTextInput handleChange={this.handleChange} label="Password" type="password" />
                 <UserTextInput handleChange={this.handleChange} label="Confirm Password" type="password" />
                 <input type="submit" onClick={this.onClick} />
+                {this.props.message && this.props.message}
                 <GeneralLink path="login" text="login" />
             </div>
         )
@@ -42,7 +43,8 @@ export class Register extends React.Component {
 
 export const mapStateToProps = (state) => {
     return {
-        activeView: state.activeView
+        activeView: state.activeView,
+        message: state.genericMessage
     }
 }
 

@@ -41,6 +41,7 @@ export class EditCredentialView extends React.Component {
                 <h1>Value</h1>
                 <input type='text' onChange={this.handleChange}/>
                 <input type='submit' value="Edit" onClick={this.onClick}/>
+                {this.props.message && this.props.message}
             </div>
         )
     }
@@ -49,7 +50,8 @@ export class EditCredentialView extends React.Component {
 export const mapStateToProps = (state) => {
     return {
         key: state.currentEdittingKey,
-        value: state.currentEdittingValue
+        value: state.currentEdittingValue,
+        message: state.genericMessage
     }
 }
 

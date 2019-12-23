@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { CredentialListItem } from '../viewItems/credentialListItem';
 import { activeViewAction, logoutAction } from '../actions/index';
 import GeneralLink from '../viewItems/generalLink';
+import GeneralMessageModal from './generalMessageModal';
 import ChangeViewButton from '../viewItems/changeViewButton';
 
 export class Lobby extends React.Component {
@@ -24,6 +25,7 @@ export class Lobby extends React.Component {
                     :
                     (
                         <div>
+                            <GeneralMessageModal />
                             <button onClick={this.logout} value="LOGOUT" />
                             <h1>Welcome {user} </h1>
                             {credentials.map(element => {
