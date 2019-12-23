@@ -1,14 +1,12 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const GeneralLink = (props) => {
-    const { value } = props
+    const { path, text } = props;
     return (
-        <div>
-            <a href="/">
-                <h1>{value}</h1>
-            </a>
-        </div>
+        <Link to={`/${path}`}>
+            {text}
+        </Link>
     )
-} 
-
-export default GeneralLink;
+}
+export default GeneralLink

@@ -6,8 +6,8 @@ import { removeCredentialAction, editCredentialKeyAndValue, activeViewAction } f
 import iconPathMap from '../../iconPaths';
 
 export const CredentialListItem = (props) => {
-    const {credential} = props;
-    
+    const { credential } = props;
+
     const removeCurrentCredential = () => {
         this.props.removeCredential(credential);
     }
@@ -15,13 +15,13 @@ export const CredentialListItem = (props) => {
     const goToEditPage = () => {
         this.props.goToEditPage(credential)
     }
-    
-    const RemoveCredentialButton = <ImageButton iconPath={iconPathMap.remove} onClick={removeCurrentCredential}/>;
-    const EditCredentialButton = <ImageButton iconPath={iconPathMap.edit} onClick={goToEditPage}/>;
+
+    const RemoveCredentialButton = <ImageButton iconPath={iconPathMap.remove} onClick={removeCurrentCredential} />;
+    const EditCredentialButton = <ImageButton iconPath={iconPathMap.edit} onClick={goToEditPage} />;
 
     return (
         <div>
-            <Credential key={credential.key} password={credential.password}/>
+            <Credential key={credential.key} password={credential.password} />
             <RemoveCredentialButton />
             <EditCredentialButton />
         </div>
@@ -34,8 +34,8 @@ export const mapDispatchToProps = (dispatch) => {
             dispatch(removeCredentialAction(credential))
         },
         goToEditPage: (credential) => {
-            dispatch(activeViewAction("EDIT"))
             dispatch(editCredentialKeyAndValue(credential))
+            dispatch(activeViewAction("edit"))
         }
     }
 }

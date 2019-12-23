@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom'
 import { CredentialListItem } from '../viewItems/credentialListItem';
 import { activeViewAction, logoutAction } from '../actions/index';
+import GeneralLink from '../viewItems/generalLink';
 import ChangeViewButton from '../viewItems/changeViewButton';
-
 
 export class Lobby extends React.Component {
 
@@ -15,16 +16,24 @@ export class Lobby extends React.Component {
         this.props.attemptLogout();
     }
 
-    render(){
-        const {credentials, user} = this.props;
-        return(
+    render() {
+        const { credentials, user } = this.props;
+        return (
             <div>
-                <button onClick={this.logout} value="LOGOUT"/>
-                <h1>Welcome {user} </h1>
-                {credentials.map(element => {
-                    return <CredentialListItem credential={element}/>
-                })}
-                <ChangeViewButton onClick={this.changeViewToCreateCredential} dataRole={"create-credential"} value="+"/>
+                {this.props.activeView === "edit" ? (<Redirect push to="/edit/credential" />)
+                    :
+                    (
+                        <div>
+                            <button onClick={this.logout} value="LOGOUT" />
+                            <h1>Welcome {user} </h1>
+                            {credentials.map(element => {
+                                return <CredentialListItem credential={element} />
+                            })}
+                            <GeneralLink path="add/credential" />
+                            {/* <ChangeViewButton onClick={this.changeViewToCreateCredential} dataRole={"create-credential"} value="+" /> */}
+                        </div>
+                    )
+                }
             </div>
 
         )
@@ -34,7 +43,8 @@ export class Lobby extends React.Component {
 export const mapStateToProps = (state) => {
     return {
         credentials: state.credentials,
-        user: state.user
+        user: state.user,
+        activeView: state.activeView
     }
 }
 
