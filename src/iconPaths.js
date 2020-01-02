@@ -1,7 +1,7 @@
 
 const iconPathMap = {
-    edit:'',
-    remove: ''
+    edit:'../public/edit.png',
+    remove: '../public/remove.ico'
 }
 
 

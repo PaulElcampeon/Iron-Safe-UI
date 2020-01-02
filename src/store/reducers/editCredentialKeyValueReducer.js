@@ -1,6 +1,6 @@
 import { EDIT_CREDENTIAL_KEY_VALUE } from "../actions"
 
-const editCredentialKeyValueReducer = (state = undefined, action) => {
+const editCredentialKeyValueReducer = (state = null, action) => {
     switch (action.type) {
         case EDIT_CREDENTIAL_KEY_VALUE:
             return action.credential;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateMessage } from '../actions/index';
+import { updateMessage } from '../../store/actions/index';
 
 export class GeneralMessageModal extends Component {
     constructor(props) {

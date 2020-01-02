@@ -1,9 +1,9 @@
 import { UPDATE_MESSAGE } from "../actions"
 
-const updateMessageReducer = (state = undefined, action) => {
+const updateMessageReducer = (state = null, action) => {
     switch(action.type) {
         case UPDATE_MESSAGE: 
-            return action.mesage;
+            return action.message;
         default:
             return state;
 

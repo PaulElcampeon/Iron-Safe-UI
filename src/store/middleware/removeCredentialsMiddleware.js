@@ -1,6 +1,6 @@
 import { REMOVE_CREDENTIAL, updateMessage } from '../actions/index';
 import { removeCredential } from '../../comms/commsService'
-import store from '../store';
+import store from '../index';
 
 export const removeCredentialMiddleware = (state) => (next) => (action) => {
     switch (action.type) {
@@ -14,7 +14,10 @@ export const removeCredentialMiddleware = (state) => (next) => (action) => {
                     store.dispatch(updateMessage('Credential was not removed'))
                 }  
                 )
-            .catch(error => store.dispatch(updateMessage("Something went wrong")))
+            .catch(error => {
+                console.log(error);
+                store.dispatch(updateMessage("Something went wrong"))
+            })
             break;
         default:
             next(action);

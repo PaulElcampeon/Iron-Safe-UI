@@ -1,6 +1,7 @@
 import React from 'react';
-import { editCredentialAction } from '../actions/index';
+import { editCredentialAction } from '../../store/actions/index';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom'
 
 
 export class EditCredentialView extends React.Component {
@@ -34,14 +35,20 @@ export class EditCredentialView extends React.Component {
     }
 
     render(){
+        const { loggedIn } = this.props
         return (
             <div>
-                <h1>Key</h1>
-                <input type='text' onChange={this.handleChange}/>
-                <h1>Value</h1>
-                <input type='text' onChange={this.handleChange}/>
-                <input type='submit' value="Edit" onClick={this.onClick}/>
-                {this.props.message && this.props.message}
+                {!loggedIn? <Redirect push to='/'/>
+                :
+                <div>
+                    <h1>Key</h1>
+                    <input type='text' onChange={this.handleChange}/>
+                    <h1>Value</h1>
+                    <input type='text' onChange={this.handleChange}/>
+                    <input type='submit' value="Edit" onClick={this.onClick}/>
+                    {this.props.message && this.props.message}
+                </div>
+                }
             </div>
         )
     }
@@ -51,7 +58,8 @@ export const mapStateToProps = (state) => {
     return {
         key: state.currentEdittingKey,
         value: state.currentEdittingValue,
-        message: state.genericMessage
+        message: state.genericMessage,
+        loggedIn: state.loggedIn
     }
 }
 

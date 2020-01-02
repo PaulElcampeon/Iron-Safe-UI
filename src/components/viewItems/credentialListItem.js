@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Credential from './credential';
 import { ImageButton } from './imageButton';
-import { removeCredentialAction, editCredentialKeyAndValue, activeViewAction } from '../actions/index';
+import { removeCredentialAction, editCredentialKeyAndValue, updateActiveView } from '../../store/actions/index';
 import iconPathMap from '../../iconPaths';
 
 export const CredentialListItem = (props) => {
@@ -16,14 +16,14 @@ export const CredentialListItem = (props) => {
         this.props.goToEditPage(credential)
     }
 
-    const RemoveCredentialButton = <ImageButton iconPath={iconPathMap.remove} onClick={removeCurrentCredential} />;
-    const EditCredentialButton = <ImageButton iconPath={iconPathMap.edit} onClick={goToEditPage} />;
+    const removeCredentialButton = <ImageButton iconPath={iconPathMap.remove} onClick={removeCurrentCredential} />;
+    const editCredentialButton = <ImageButton iconPath={iconPathMap.edit} onClick={goToEditPage} />;
 
     return (
         <div>
-            <Credential key={credential.key} password={credential.password} />
-            <RemoveCredentialButton />
-            <EditCredentialButton />
+            <Credential keyTag={credential.key} valueTag={credential.value} />
+            {removeCredentialButton}
+            {editCredentialButton}
         </div>
     )
 }
@@ -35,7 +35,7 @@ export const mapDispatchToProps = (dispatch) => {
         },
         goToEditPage: (credential) => {
             dispatch(editCredentialKeyAndValue(credential))
-            dispatch(activeViewAction("edit"))
+            dispatch(updateActiveView("edit"))
         }
     }
 }

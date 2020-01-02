@@ -1,6 +1,9 @@
 import React from 'react';
-import { addCredentialAction } from '../actions/index';
+import { addCredentialAction } from '../../store/actions/index';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom'
+import GeneralLink from '../viewItems/generalLink';
+import resetMessage from '../../utils/resetMessage';
 
 export class CreateCredentialView extends React.Component {
     constructor(props) {
@@ -9,6 +12,7 @@ export class CreateCredentialView extends React.Component {
             key: "",
             value: ""
         }
+        resetMessage();
     }
 
     handleChange = (e) => {
@@ -20,20 +24,32 @@ export class CreateCredentialView extends React.Component {
 
     onClick = (e) => {
         const {key, value} = this.state;
-        const credential = {'key': key, 'value':value};
+        const credential = {'key': key, 'value': value};
         
         this.props.addCredential(credential);
+
+        this.setState({
+            key:"",
+            value:""
+        })
     }
 
     render(){
+        const { loggedIn } = this.props
         return (
             <div>
+                {!loggedIn ? <Redirect push to="/"/> 
+                :
+                <div>
                 <h1>Key</h1>
-                <input type='text'name='key' />
+                <input type='text'name='key' onChange={this.handleChange}/>
                 <h1>Value</h1>
-                <input type='text' name='value' />
-                <input type='submit' value="Create" onChange={this.handleChange} onClick={this.onClick}/>
+                <input type='text' name='value' onChange={this.handleChange}/>
+                <input type='submit' value="Create" onClick={this.onClick}/>
                 {this.props.message && this.props.message}
+                <GeneralLink path="lobby" text="Lobby" />
+                </div>
+                }
             </div>
         )
     }
@@ -41,7 +57,8 @@ export class CreateCredentialView extends React.Component {
 
 export const mapStateToProps = (state) => {
     return {
-        message: state.genericMessage
+        message: state.genericMessage,
+        loggedIn: state.loggedIn
     }
 }
 
@@ -50,7 +67,8 @@ export const mapDispatchToProps = (dispatch) => {
         addCredential: (credential) => {
             dispatch(addCredentialAction(credential))
         }
+
     }
 }
 
-export default connect(mapDispatchToProps)(CreateCredentialView)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateCredentialView)

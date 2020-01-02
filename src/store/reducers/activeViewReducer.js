@@ -1,6 +1,6 @@
 import { ACTIVE_VIEW } from '../actions';
 
-const activeViewReducer = (state = false, action) => {
+const activeViewReducer = (state = null, action) => {
     switch(action.type) {
         case ACTIVE_VIEW: 
             return action.activeView

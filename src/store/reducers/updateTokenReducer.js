@@ -1,6 +1,6 @@
 import { UPDATE_TOKEN } from '../actions';
 
-const updateTokenReducer = (state = undefined, action) => {
+const updateTokenReducer = (state = null, action) => {
     switch (action.type) {
         case UPDATE_TOKEN:
             return action.token
