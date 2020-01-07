@@ -2,36 +2,47 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Credential from './credential';
 import { ImageButton } from './imageButton';
-import { removeCredentialAction, editCredentialKeyAndValue, updateActiveView } from '../../store/actions/index';
+import { removeCredentialDB, editCredentialKeyAndValue, updateActiveView } from '../../store/actions/index';
 import iconPathMap from '../../iconPaths';
 
-export const CredentialListItem = (props) => {
-    const { credential } = props;
-
-    const removeCurrentCredential = () => {
-        this.props.removeCredential(credential);
+export class CredentialListItem extends React.Component {
+    constructor(props) {
+        super(props);
+        this.credential = props.credential;
     }
 
-    const goToEditPage = () => {
-        this.props.goToEditPage(credential)
+    removeCurrentCredentialX = (e) => {
+        this.props.removeCredential(this.credential);
     }
 
-    const removeCredentialButton = <ImageButton iconPath={iconPathMap.remove} onClick={removeCurrentCredential} />;
-    const editCredentialButton = <ImageButton iconPath={iconPathMap.edit} onClick={goToEditPage} />;
+    goToEditPage = (e) => {
+        this.props.goToEditPage(this.credential)
+    }
 
-    return (
-        <div>
-            <Credential keyTag={credential.key} valueTag={credential.value} />
-            {removeCredentialButton}
-            {editCredentialButton}
-        </div>
-    )
+    render(){
+        const removeCredentialButton = <ImageButton iconPath={iconPathMap.remove} onClick={this.removeCurrentCredentialX} />;
+        const editCredentialButton = <ImageButton iconPath={iconPathMap.edit} onClick={this.goToEditPage} />;
+        return (
+            <div>
+                <Credential keyTag={this.credential.key} valueTag={this.credential.value} />
+                {removeCredentialButton}
+                {editCredentialButton}
+            </div>
+        )
+    }
+}
+
+export const mapStateToProps = (state) => {
+    return {
+        message: state.genericMessage,
+        loggedIn: state.loggedIn
+    }
 }
 
 export const mapDispatchToProps = (dispatch) => {
     return {
         removeCredential: (credential) => {
-            dispatch(removeCredentialAction(credential))
+            dispatch(removeCredentialDB(credential))
         },
         goToEditPage: (credential) => {
             dispatch(editCredentialKeyAndValue(credential))
@@ -40,4 +51,4 @@ export const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapDispatchToProps)(CredentialListItem);
+export default connect(mapStateToProps, mapDispatchToProps)(CredentialListItem);

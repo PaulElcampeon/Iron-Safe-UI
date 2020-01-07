@@ -1,5 +1,5 @@
 import React from 'react';
-import { addCredentialAction } from '../../store/actions/index';
+import { addCredentialDB } from '../../store/actions/index';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import GeneralLink from '../viewItems/generalLink';
@@ -65,9 +65,8 @@ export const mapStateToProps = (state) => {
 export const mapDispatchToProps = (dispatch) => {
     return {
         addCredential: (credential) => {
-            dispatch(addCredentialAction(credential))
+            dispatch(addCredentialDB(credential))
         }
-
     }
 }
 

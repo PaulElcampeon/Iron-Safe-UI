@@ -1,4 +1,4 @@
-import { LOGIN, updateMessage, updateToken, updateCredentials, updateUser, updateActiveView, loggedInAction } from '../actions/index';
+import { LOGIN, updateMessage, updateToken, addCredentialsToStore, updateUser, updateActiveView, loggedInAction } from '../actions/index';
 import { attemptLogin } from '../../comms/commsService'
 import store from '../index';
 import credentialsChecker from '../../utils/loginPreVerification';
@@ -15,7 +15,7 @@ export const loginMiddleware = (state) => (next) => (action) => {
                     } else {
                         store.dispatch(updateToken(data.jwt));
                         store.dispatch(updateUser(data.safe.email));
-                        store.dispatch(updateCredentials(data.safe.credentials));
+                        store.dispatch(addCredentialsToStore(data.safe.credentials));
                         store.dispatch(loggedInAction(true));
                         store.dispatch(updateMessage(null))
                         store.dispatch(updateActiveView("lobby"));

@@ -1,5 +1,8 @@
 export const EDIT_CREDENTIAL = 'EDIT_CREDENTIAL'; //should be middleware that will update the credentialstate
 export const ADD_CREDENTIAL = 'ADD_CREDENTIAL'; //should be middleware that will update the credentialstate
+export const ADD_CREDENTIALS = 'ADD_CREDENTIALS'; //should be middleware that will update the credentialstate
+export const REMOVE_CREDENTIAL_DATA_BASE = 'REMOVE_CREDENTIAL_DATA_BASE'
+export const ADD_CREDENTIAL_DATA_BASE = 'REMOVE_CREDENTIAL_DATA_BASE'
 export const REMOVE_CREDENTIAL = 'REMOVE_CREDENTIAL'; //should be middleware that will update the credentialstate
 export const LOGIN = 'LOGIN'; //should be a middleware
 export const LOGOUT = 'LOGOUT';//should be a middleware
@@ -26,13 +29,6 @@ export const updateToken = (token) => {
     }
 }
 
-export const updateCredentials = (credentials) => {
-    return {
-        type: UPDATE_CREDENTIALS,
-        credentials: credentials
-    }
-}
-
 export const updateMessage = (message) => {
     return {
         type: UPDATE_MESSAGE,
@@ -47,16 +43,38 @@ export const editCredentialAction = (credential) => {
     }
 }
 
-export const addCredentialAction = (credential) => {
+export const addCredentialToStore = (credential) => {
     return {
         type: ADD_CREDENTIAL,
         credential: credential
     }
 }
 
-export const removeCredentialAction = (credential) => {
+export const addCredentialsToStore = (credentials) => {
+    return {
+        type: ADD_CREDENTIALS,
+        credentials: credentials
+    }
+}
+
+export const addCredentialDB = (credential) => {
+    return {
+        type: ADD_CREDENTIAL_DATA_BASE,
+        credential: credential
+    }
+}
+
+
+export const removeCredentialFromStore = (credential) => {
     return {
         type: REMOVE_CREDENTIAL,
+        credential: credential
+    }
+}
+
+export const removeCredentialDB = (credential) => {
+    return {
+        type: REMOVE_CREDENTIAL_DATA_BASE,
         credential: credential
     }
 }

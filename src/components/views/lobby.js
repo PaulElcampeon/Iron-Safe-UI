@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
-import { CredentialListItem } from '../viewItems/credentialListItem';
+import CredentialListItem from '../viewItems/credentialListItem';
 import { updateActiveView, logoutAction } from '../../store/actions/index';
 import GeneralLink from '../viewItems/generalLink';
 import GeneralMessageModal from './generalMessageModal';
 import ChangeViewButton from '../viewItems/changeViewButton';
 
 export class Lobby extends React.Component {
-
+    
     changeViewToCreateCredential = (e) => {
         this.props.createCredential();
     }
@@ -30,8 +30,9 @@ export class Lobby extends React.Component {
                             <GeneralMessageModal />
                             <button onClick={this.logout} value="LOGOUT" />
                             <h1>Welcome {user} </h1>
-                            {credentials.map((element, index) => {
-                                return <CredentialListItem key={index} credential={element} />
+                            {credentials && credentials.map((element, index) => {
+                                console.log(element)
+                                return <CredentialListItem key={element.key} credential={element} />
                             })}
                             <GeneralLink path='add-credential' text='Add Credential' />
                             {/* <ChangeViewButton onClick={this.changeViewToCreateCredential} dataRole={"create-credential"} value="+" /> */}
