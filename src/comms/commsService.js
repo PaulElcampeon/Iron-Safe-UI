@@ -25,18 +25,6 @@ export const removeCredential = (credential, token) => {
     })
 }
 
-export const editCredential = (credential, token) => {
-    return fetch('/safe/edit/credential', {
-        method: 'put',
-        body: JSON.stringify(credential),
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        }
-    })
-}
-
 export const attemptLogin = (credential) => {
     return fetch('/user/authenticate', {
         method: 'post',
