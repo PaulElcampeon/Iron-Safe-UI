@@ -12,7 +12,6 @@ export const addCredential = (credential, token) => {
     })
 }
 
-
 export const removeCredential = (credential, token) => {
     return fetch('/safe/remove/credential', {
         method: 'delete',
