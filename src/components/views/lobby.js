@@ -22,24 +22,20 @@ export class Lobby extends React.Component {
         return (
             <div>
                 {/* {!loggedIn && this.props.history.push('/')} */}
-                {!loggedIn && <Redirect push to="/"/>}
-                {this.props.activeView === "edit" && loggedIn? (<Redirect push to="/edit-credential" />)
-                    :
-                    (
-                        <div>
-                            <GeneralMessageModal />
-                            <button onClick={this.logout} value="LOGOUT" />
-                            <h1>Welcome {user} </h1>
-                            {credentials && credentials.map((element, index) => {
-                                return <CredentialListItem key={element.key} credential={element} />
-                            })}
-                            <GeneralLink path='add-credential' text='Add Credential' />
-                            {/* <ChangeViewButton onClick={this.changeViewToCreateCredential} dataRole={"create-credential"} value="+" /> */}
-                        </div>
-                    )
+                {!loggedIn ? <Redirect push to="/"/> 
+                : 
+                    <div>
+                        <GeneralMessageModal />
+                        <button onClick={this.logout} value="LOGOUT" />
+                        <h1>Welcome {user} </h1>
+                        {credentials && credentials.map((element, index) => {
+                            return <CredentialListItem key={element.key} credential={element} />
+                        })}
+                        <GeneralLink path='add-credential' text='Add Credential' />
+                        {/* <ChangeViewButton onClick={this.changeViewToCreateCredential} dataRole={"create-credential"} value="+" /> */}
+                    </div>
                 }
             </div>
-
         )
     }
 }

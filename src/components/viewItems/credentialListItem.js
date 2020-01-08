@@ -15,18 +15,12 @@ export class CredentialListItem extends React.Component {
         this.props.removeCredential(this.credential);
     }
 
-    goToEditPage = (e) => {
-        this.props.goToEditPage(this.credential)
-    }
-
     render(){
         const removeCredentialButton = <ImageButton iconPath={iconPathMap.remove} onClick={this.removeCurrentCredential} />;
-        const editCredentialButton = <ImageButton iconPath={iconPathMap.edit} onClick={this.goToEditPage} />;
         return (
             <div>
                 <Credential keyTag={this.credential.key} valueTag={this.credential.value} />
                 {removeCredentialButton}
-                {editCredentialButton}
             </div>
         )
     }
@@ -43,10 +37,6 @@ export const mapDispatchToProps = (dispatch) => {
     return {
         removeCredential: (credential) => {
             dispatch(removeCredentialDB(credential))
-        },
-        goToEditPage: (credential) => {
-            dispatch(editCredentialKeyAndValue(credential))
-            dispatch(updateActiveView("edit"))
         }
     }
 }
