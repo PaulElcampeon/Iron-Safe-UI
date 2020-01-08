@@ -2,7 +2,7 @@ export const EDIT_CREDENTIAL = 'EDIT_CREDENTIAL'; //should be middleware that wi
 export const ADD_CREDENTIAL = 'ADD_CREDENTIAL'; //should be middleware that will update the credentialstate
 export const ADD_CREDENTIALS = 'ADD_CREDENTIALS'; //should be middleware that will update the credentialstate
 export const REMOVE_CREDENTIAL_DATA_BASE = 'REMOVE_CREDENTIAL_DATA_BASE'
-export const ADD_CREDENTIAL_DATA_BASE = 'REMOVE_CREDENTIAL_DATA_BASE'
+export const ADD_CREDENTIAL_DATA_BASE = 'ADD_CREDENTIAL_DATA_BASE'
 export const REMOVE_CREDENTIAL = 'REMOVE_CREDENTIAL'; //should be middleware that will update the credentialstate
 export const LOGIN = 'LOGIN'; //should be a middleware
 export const LOGOUT = 'LOGOUT';//should be a middleware
@@ -63,7 +63,6 @@ export const addCredentialDB = (credential) => {
         credential: credential
     }
 }
-
 
 export const removeCredentialFromStore = (credential) => {
     return {

@@ -14,7 +14,6 @@ export class GeneralMessageModal extends Component {
                 this.props.message && (
                     <div>
                         <h1>{this.props.message}</h1>
-                        {console.log("yiberna")}
                         <button onClick={this.props.resetMessage}>Ok</button>
                     </div>
                     )

@@ -11,7 +11,7 @@ export class CredentialListItem extends React.Component {
         this.credential = props.credential;
     }
 
-    removeCurrentCredentialX = (e) => {
+    removeCurrentCredential = (e) => {
         this.props.removeCredential(this.credential);
     }
 
@@ -20,7 +20,7 @@ export class CredentialListItem extends React.Component {
     }
 
     render(){
-        const removeCredentialButton = <ImageButton iconPath={iconPathMap.remove} onClick={this.removeCurrentCredentialX} />;
+        const removeCredentialButton = <ImageButton iconPath={iconPathMap.remove} onClick={this.removeCurrentCredential} />;
         const editCredentialButton = <ImageButton iconPath={iconPathMap.edit} onClick={this.goToEditPage} />;
         return (
             <div>

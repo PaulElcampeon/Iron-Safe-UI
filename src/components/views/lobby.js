@@ -31,7 +31,7 @@ export class Lobby extends React.Component {
                             <button onClick={this.logout} value="LOGOUT" />
                             <h1>Welcome {user} </h1>
                             {credentials && credentials.map((element, index) => {
-                                console.log(element)
+                                console.log(index)
                                 return <CredentialListItem key={element.key} credential={element} />
                             })}
                             <GeneralLink path='add-credential' text='Add Credential' />

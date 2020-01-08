@@ -11,7 +11,7 @@ export const addCredentialMiddleware = (state) => (next) => (action) => {
             .then(response => {
                     if (response) { 
                         store.dispatch(updateMessage('Credential was added'))
-                        store.dispatch(addCredentialToStore(action.credential.key))
+                        store.dispatch(addCredentialToStore(action.credential))
                     } else {
                         store.dispatch(updateMessage('Credential was not added'))
                     }

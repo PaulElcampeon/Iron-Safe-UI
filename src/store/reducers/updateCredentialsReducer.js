@@ -8,8 +8,10 @@ const updateCredentialsReducer = (state = [], action) => {
                     return {"key": tempArray[0], "value": tempArray[1]}
                 })
         case ADD_CREDENTIAL:
+            console.log("adding " + action.credential)
             return [...state, action.credential];
         case REMOVE_CREDENTIAL:
+            console.log("removing " + action.credential)
             return state.filter(credential => credential !== action.credential)
         default:
             return state;
