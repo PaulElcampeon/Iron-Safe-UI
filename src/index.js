@@ -9,19 +9,19 @@ import Login from './components/views/login';
 import Registration from './components/views/registration';
 import Lobby from './components/views/lobby';
 import CreateCredential from './components/views/createCredentialView';
-import EditCredential from './components/views/editCredentialView';
+import GeneralMessageModal from './components/views/generalMessageModal';
 
 //If there is a jwt in the store we want to check if it is valid, if it is valid then we will render the lobby else we render the login page. 
 
 const Root = ({ store }) => {
     return (
         <Provider store={store}>
+            <GeneralMessageModal />
             <Router>
                 <Switch>
                     <Route exact path={["/", "/login"]} component={Login} />
                     <Route path="/register" component={Registration} />
                     <Route path="/add-credential" component={CreateCredential} />
-                    <Route path="/edit-credential" component={EditCredential} />
                     <Route path="/lobby" component={Lobby} />
                     <Redirect to="/" />
                     {/* <Route path="" component={Error} /> */}
