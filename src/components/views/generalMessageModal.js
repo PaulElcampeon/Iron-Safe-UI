@@ -8,8 +8,8 @@ export class GeneralMessageModal extends Component {
     }
 
     render() {
-        return(
-            <div>
+        return (
+            <div className={"generalMessageModal " + (this.props.message? 'show':'hide')}>
                 {
                 this.props.message && (
                     <div>
@@ -25,14 +25,14 @@ export class GeneralMessageModal extends Component {
 
 export const mapStateToProps = (state) => {
     return {
-        message: state.genericMesssage
+        message: state.genericMessage
     }
 }
 
 export const mapDispatchToProps = (dispatch) => {
     return {
         resetMessage: () => {
-            dispatch(updateMessage(undefined))
+            dispatch(updateMessage(null))
         }
     }
 }
