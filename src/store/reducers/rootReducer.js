@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import activeViewReducer from './activeViewReducer';
-import editCredentialKeyValueReducer from './editCredentialKeyValueReducer';
 import loggedInReducer from './loggedInReducer';
 import updateCredentialsReducer from './updateCredentialsReducer';
 import updateMessageReducer from './updateMessageReducer';
@@ -13,7 +12,6 @@ const rootReducer = combineReducers({
     activeView: activeViewReducer,
     credentials: updateCredentialsReducer,
     genericMessage: updateMessageReducer,
-    currentEditKeyAndValue: editCredentialKeyValueReducer,
     token: updateTokenReducer
 })
 
