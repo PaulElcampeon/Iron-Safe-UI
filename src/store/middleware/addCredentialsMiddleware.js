@@ -5,7 +5,6 @@ import store from '../index';
 export const addCredentialMiddleware = (state) => (next) => (action) => {
     switch (action.type) {
         case ADD_CREDENTIAL_DATA_BASE:
-            // If successful we can add credential to credential state
             addCredential(action.credential, store.getState().token)
             .then(res => res.json())
             .then(response => {

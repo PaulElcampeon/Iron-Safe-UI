@@ -5,8 +5,7 @@ export const UserTextInput = (props) => {
 
     return (
         <div>
-            <label value={label}/>
-            <input type={type} onChange={handleChange} name={label.replace(" ", "").toLowerCase()} value={value} />
+            <input className={"textInputs"} type={type} onChange={handleChange} name={label.replace(" ", "").toLowerCase()} value={value} placeholder={type}/>
         </div>
     )
 }

@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Credential from './credential';
 import { ImageButton } from './imageButton';
-import { removeCredentialDB, updateActiveView } from '../../store/actions/index';
-import iconPathMap from '../../iconPaths';
+import { removeCredentialDB } from '../../store/actions/index';
+import iconPathMap from '../../utils/iconPaths';
 
 export class CredentialListItem extends React.Component {
     constructor(props) {

@@ -5,6 +5,7 @@ import { UserTextInput } from '../viewItems/userTextInput';
 import { loginAction } from '../../store/actions/index';
 import GeneralLink from '../viewItems/generalLink';
 import resetMessage from '../../utils/resetMessage';
+import CustomNavbar from '../viewItems/customNavbar';
 
 export class Login extends React.Component {
     constructor(props) {
@@ -29,22 +30,22 @@ export class Login extends React.Component {
         this.setState({
             password:""
         })
-
-        //possible whilst attempting to login we play a loading ajimation
     }
 
     render() {
         const {email, password} = this.state;
         return (
             <div>
+                <CustomNavbar subtitles={['login','register']}/>
                 {this.props.activeView === "lobby" ? <Redirect push to="/lobby" />
                     :
                     (
-                        <div>
+                        <div className={'loginPanel'}>
+                            <h1>Login</h1>
                             <UserTextInput handleChange={this.handleChange} value={email} label="Email" type="email" />
                             <UserTextInput handleChange={this.handleChange} value={password} label="Password" type="password" />
                             <input type="submit" onClick={this.onClick} value="Login"/>
-                            <p>{this.props.message && this.props.message}</p>
+                            <br /><br />
                             <GeneralLink path="register" text="Register" />
                         </div>
                     )
@@ -57,7 +58,6 @@ export class Login extends React.Component {
 export const mapStateToProps = (state) => {
     return {
         activeView: state.activeView,
-        message: state.genericMessage
     }
 }
 

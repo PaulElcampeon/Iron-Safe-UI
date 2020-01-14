@@ -12,6 +12,7 @@ export const UPDATE_USER = 'UPDATE_USER';
 export const UPDATE_MESSAGE = 'UPDATE_MESSAGE';
 export const UPDATE_CREDENTIALS = 'UPDATE_CREDENTIALS';
 export const UPDATE_TOKEN = 'UPDATE_TOKEN';
+export const REMOVE_CREDENTIALS = 'REMOVE_CREDENTIALS';
 
 export const updateUser = (user) => {
     return {
@@ -66,6 +67,12 @@ export const removeCredentialDB = (credential) => {
     return {
         type: REMOVE_CREDENTIAL_DATA_BASE,
         credential: credential
+    }
+}
+
+export const removeAllCredentials = () => {
+    return {
+        type: REMOVE_CREDENTIALS
     }
 }
 

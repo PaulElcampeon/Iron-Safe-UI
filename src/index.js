@@ -10,12 +10,12 @@ import Registration from './components/views/registration';
 import Lobby from './components/views/lobby';
 import CreateCredential from './components/views/createCredentialView';
 import GeneralMessageModal from './components/views/generalMessageModal';
-
-//If there is a jwt in the store we want to check if it is valid, if it is valid then we will render the lobby else we render the login page. 
+import SessionManager from './utils/sessionManager';
 
 const Root = ({ store }) => {
     return (
         <Provider store={store}>
+            {SessionManager.restoreSession()}
             <GeneralMessageModal />
             <Router>
                 <Switch>

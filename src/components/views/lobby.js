@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom'
 import CredentialListItem from '../viewItems/credentialListItem';
 import { updateActiveView, logoutAction } from '../../store/actions/index';
 import GeneralLink from '../viewItems/generalLink';
-import ChangeViewButton from '../viewItems/changeViewButton';
 
 export class Lobby extends React.Component {
     
@@ -20,7 +19,6 @@ export class Lobby extends React.Component {
         const { credentials, user, loggedIn} = this.props;
         return (
             <div>
-                {/* {!loggedIn && this.props.history.push('/')} */}
                 {!loggedIn ? <Redirect push to="/"/> 
                 : 
                     <div>

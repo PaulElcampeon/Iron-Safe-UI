@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const GeneralLink = (props) => {
     const { path, text } = props;
     return (
-        <Link to={`/${path}`}>
+        <Link className={"links"} to={`/${path}`}>
             {text}
         </Link>
     )

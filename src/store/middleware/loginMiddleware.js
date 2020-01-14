@@ -1,7 +1,8 @@
 import { LOGIN, updateMessage, updateToken, addCredentialsToStore, updateUser, updateActiveView, loggedInAction } from '../actions/index';
 import { attemptLogin } from '../../comms/commsService'
-import store from '../index';
 import credentialsChecker from '../../utils/loginPreVerification';
+import SessionManager from '../../utils/sessionManager';
+import store from '../index';
 
 export const loginMiddleware = (state) => (next) => (action) => {
     switch (action.type) {
@@ -13,6 +14,7 @@ export const loginMiddleware = (state) => (next) => (action) => {
                     if (data.status && data.status !== 202) {
                         store.dispatch(updateMessage("Something wrong happened"))                       
                     } else {
+                        SessionManager.updateSession()
                         store.dispatch(updateToken(data.jwt));
                         store.dispatch(updateUser(data.safe.email));
                         store.dispatch(addCredentialsToStore(data.safe.credentials));
