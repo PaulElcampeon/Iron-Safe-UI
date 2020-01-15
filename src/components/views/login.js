@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { UserTextInput } from '../viewItems/userTextInput';
 import { loginAction } from '../../store/actions/index';
-import GeneralLink from '../viewItems/generalLink';
 import resetMessage from '../../utils/resetMessage';
 import CustomNavbar from '../viewItems/customNavbar';
 
@@ -36,7 +35,7 @@ export class Login extends React.Component {
         const {email, password} = this.state;
         return (
             <div>
-                <CustomNavbar subtitles={['login','register']}/>
+                <CustomNavbar  history={this.props.history} subtitles={['login','register']}/>
                 {this.props.activeView === "lobby" ? <Redirect push to="/lobby" />
                     :
                     (
@@ -45,8 +44,6 @@ export class Login extends React.Component {
                             <UserTextInput handleChange={this.handleChange} value={email} label="Email" type="email" />
                             <UserTextInput handleChange={this.handleChange} value={password} label="Password" type="password" />
                             <input type="submit" onClick={this.onClick} value="Login"/>
-                            <br /><br />
-                            <GeneralLink path="register" text="Register" />
                         </div>
                     )
                 }

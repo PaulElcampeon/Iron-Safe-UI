@@ -1,26 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Credential from './credential';
-import { ImageButton } from './imageButton';
 import { removeCredentialDB } from '../../store/actions/index';
-import iconPathMap from '../../utils/iconPaths';
 
 export class CredentialListItem extends React.Component {
     constructor(props) {
         super(props);
         this.credential = props.credential;
+        this.state = {
+            show: false
+        }
     }
 
     removeCurrentCredential = (e) => {
         this.props.removeCredential(this.credential);
     }
 
+    onClick = (e) => {
+        this.setState({show: !this.state.show})
+    }
+
     render(){
-        const removeCredentialButton = <ImageButton iconPath={iconPathMap.remove} onClick={this.removeCurrentCredential} />;
+        const {show} = this.state;
         return (
-            <div>
-                <Credential keyTag={this.credential.key} valueTag={this.credential.value} />
-                {removeCredentialButton}
+            <div className={"credentialListItem"}>
+                <div onClick={this.onClick} className={"key"}> 
+                    {this.credential.key}
+                </div>
+                <div className={"value " + (show? 'show' : 'hide')}>
+                    {this.credential.value}
+                </div>
+                <div className={"remove " + (show? 'show' : 'hide')}>
+                   <button onClick={this.removeCurrentCredential}>REMOVE</button>
+                </div>
             </div>
         )
     }

@@ -7,7 +7,7 @@ export const CustomNavbar = (props) => {
     return (
         <div className={"navbar"}>
             <div className={"navbarTitle"}>Iron-Safe</div>
-            {subtitles.map((subtitle) => <NavbarItem key={subtitle} itemName={subtitle}/>)} 
+            {subtitles.map((subtitle) => <NavbarItem  history={props.history} key={subtitle} itemName={subtitle}/>)} 
         </div>
     )
 }

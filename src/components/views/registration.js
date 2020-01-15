@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { UserTextInput } from '../viewItems/userTextInput';
 import { registerAction } from '../../store/actions/index';
-import GeneralLink from '../viewItems/generalLink';
 import resetMessage from '../../utils/resetMessage';
 import CustomNavbar from '../viewItems/customNavbar';
 
@@ -30,15 +29,13 @@ export class Register extends Component {
             password: "", 
             confirmpassword: "" 
         })
-
-        //possible whilst attempting to register we play a loading ajimation
     }
 
     render() {
         const { email, confirmemail, password, confirmpassword} = this.state;
         return (
             <div>
-                <CustomNavbar subtitles={['login','register']}/>
+                <CustomNavbar  history={this.props.history} subtitles={['login','register']}/>
                 <div className={"registrationPanel"}>
                     <h1>Registration</h1>
                     <UserTextInput handleChange={this.handleChange} label="Email" value={email} type="email" />
@@ -46,8 +43,6 @@ export class Register extends Component {
                     <UserTextInput handleChange={this.handleChange} label="Password" value={password} type="password" />
                     <UserTextInput handleChange={this.handleChange} label="Confirm Password" value={confirmpassword} type="password" />
                     <input type="submit" onClick={this.onClick} value="Register"/>
-                    <br /><br />
-                    <GeneralLink path="login" text="login" />
                 </div>
             </div>
         )

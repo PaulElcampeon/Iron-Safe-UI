@@ -1,23 +1,22 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { updateActiveView } from '../../store/actions/index';
+import { updateActiveView, logoutAction } from '../../store/actions/index';
+import { Link } from 'react-router-dom'
 
 export class NavbarItem extends Component {
-    constructor(props) {
-        super(props);
-        this.itemName = this.props;
-    }
+ 
     onClick = (e) => {
-        console.log("You clicked me")
-        this.props.updateView(this.props.itemName);
+        if (this.props.itemName === 'logout') {
+            this.props.attemptLogout();
+        } 
     }
-
+  
     render() {
         const {itemName} = this.props;
 
         return (
             <div onClick={this.onClick} className={"navbarItem " + (this.selectedTitle === itemName? 'highlighted-navbarItem': '')}>
-                {itemName}
+                {this.itemName === "logout" ? itemName : <Link className={"links"} to={`/${itemName}`}>{itemName}</Link>}
             </div>
         )
     }
@@ -33,6 +32,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         updateView: (view) => {
             dispatch(updateActiveView(view))
+        },
+        attemptLogout: () => {
+            dispatch(logoutAction());
         }
     }
 }
