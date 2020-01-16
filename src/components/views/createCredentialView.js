@@ -42,12 +42,12 @@ export class CreateCredentialView extends React.Component {
                 <CustomNavbar  history={this.props.history} subtitles={['lobby', 'add-credential','logout']}/>
                 {!loggedIn ? <Redirect push to="/"/> 
                 :
-                <div>
-                    <h1>Key</h1>
-                    <input type='text' name='key' value={this.state.key} onChange={this.handleChange}/>
-                    <h1>Value</h1>
-                    <input type='text' name='value'  value={this.state.value} onChange={this.handleChange}/>
-                    <input type='submit' value="Create" onClick={this.onClick}/>
+                <div className={'createPanel'}>
+                    <h1>Create Credential</h1>
+                    <input className={'textInputs'} type='text' name='key' value={this.state.key} onChange={this.handleChange} placeholder="key"/>
+                    <input className={'textInputs'} type='text' name='value'  value={this.state.value} onChange={this.handleChange} placeholder="value"/>
+                    <br />
+                    <input type='submit' value="add" onClick={this.onClick}/>
                 </div>
                 }
             </div>
