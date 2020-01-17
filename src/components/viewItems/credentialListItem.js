@@ -29,8 +29,8 @@ export class CredentialListItem extends React.Component {
                 <div className={"value " + (show? 'show' : 'hide')}>
                     {this.credential.value}
                 </div>
-                <div className={"remove " + (show? 'show' : 'hide')}>
-                   <button onClick={this.removeCurrentCredential}>REMOVE</button>
+                <div onClick={this.removeCurrentCredential} className={"remove " + (show? 'show' : 'hide')}>
+                    REMOVE
                 </div>
             </div>
         )
