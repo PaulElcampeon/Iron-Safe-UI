@@ -145,11 +145,6 @@ code {
   padding: 5px;
   width: 100px;
   text-align: center;
-}
-
-.credentialListItem > .remove > button {
-  background-color: transparent;
-  border: none;
   color: white;
 }
 
