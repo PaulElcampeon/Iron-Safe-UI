@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { updateMessage } from '../../store/actions/index';
 
 export class GeneralMessageModal extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
@@ -13,7 +10,7 @@ export class GeneralMessageModal extends Component {
                 {
                 this.props.message && (
                     <div>
-                        <h1>{this.props.message}</h1>
+                        <p>{this.props.message}</p>
                         <button onClick={this.props.resetMessage}>Ok</button>
                     </div>
                     )
