@@ -21,7 +21,7 @@ export const addCredentialMiddleware = (state) => (next) => (action) => {
                     store.dispatch(updateMessage("Something went wrong"))
                 })
             } else {
-                store.dispatch(updateMessage('Credentials were invalid \n Credentials must not contain empty spaces \n Credentials must not exceed more than 20 characters'))
+                store.dispatch(updateMessage('Credentials were invalid \n Credentials must not contain empty spaces \n Credentials must not exceed more than 15 characters'))
             }
             break;
         default:

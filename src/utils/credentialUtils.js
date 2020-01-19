@@ -2,7 +2,7 @@ export default class CredentialUtils {
 
     static isCredentialValid = (credential) => {
         let trimmedCredential = credential.trim();
-        return !this.hasEmptySpaces(trimmedCredential) && !this.isEmpty(trimmedCredential) && !this.moreThan20Characters(trimmedCredential);
+        return !this.hasEmptySpaces(trimmedCredential) && !this.isEmpty(trimmedCredential) && !this.moreThan15Characters(trimmedCredential);
     }
 
     static hasEmptySpaces = (credential) => {
@@ -13,7 +13,7 @@ export default class CredentialUtils {
         return credential === "";
     }
 
-    static moreThan20Characters = (credential) => {
-        return credential.length > 20;
+    static moreThan15Characters = (credential) => {
+        return credential.length > 15;
     }
 }
