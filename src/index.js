@@ -11,6 +11,7 @@ import Lobby from './components/views/lobby';
 import CreateCredential from './components/views/createCredentialView';
 import GeneralMessageModal from './components/views/generalMessageModal';
 import SessionManager from './utils/sessionManager';
+import CustomNavBar from './components/viewItems/customNavbar';
 
 const Root = ({ store }) => {
     return (
@@ -18,11 +19,12 @@ const Root = ({ store }) => {
             {SessionManager.restoreSession()}
             <GeneralMessageModal />
             <Router>
+            <CustomNavBar />
                 <Switch>
                     <Route exact path={["/", "/login"]} component={Login} />
-                    <Route path="/register" component={Registration} />
-                    <Route path="/add-credential" component={CreateCredential} />
-                    <Route path="/lobby" component={Lobby} />
+                    <Route exact path="/register" component={Registration} />
+                    <Route exact path="/add-credential" component={CreateCredential} />
+                    <Route exact path="/credentials" component={Lobby} />
                     <Redirect to="/" />
                     {/* <Route path="" component={Error} /> */}
                 </Switch>

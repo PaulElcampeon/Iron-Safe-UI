@@ -22,7 +22,7 @@ export class CredentialListItem extends React.Component {
     render(){
         const {show} = this.state;
         return (
-            <div className={"credentialListItem"}>
+            <li className={"credentialListItem"}>
                 <div onClick={this.onClick} className={"key"}> 
                     {this.credential.key}
                 </div>
@@ -32,7 +32,7 @@ export class CredentialListItem extends React.Component {
                 <div onClick={this.removeCurrentCredential} className={"remove " + (show? 'show' : 'hide')}>
                     REMOVE
                 </div>
-            </div>
+            </li>
         )
     }
 }

@@ -13,7 +13,6 @@ export class NavbarItem extends Component {
   
     render() {
         const {itemName} = this.props;
-
         return (
             <div onClick={this.onClick} className={"navbarItem " + (this.selectedTitle === itemName? 'highlighted-navbarItem': '')}>
                 {this.itemName === "logout" ? itemName : <Link className={"links"} to={`/${itemName}`}>{itemName}</Link>}

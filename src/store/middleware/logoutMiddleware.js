@@ -1,4 +1,4 @@
-import { LOGOUT, updateMessage, updateActiveView, updateToken, removeAllCredentials, updateUser, loggedInAction } from '../actions/index';
+import { LOGOUT, updateMessage, updateToken, removeAllCredentials, updateUser, loggedInAction } from '../actions/index';
 import SessionManager from '../../utils/sessionManager';
 import store from '../index';
 
@@ -10,7 +10,6 @@ export const logoutMiddleware = (state) => (next) => (action) => {
             store.dispatch(updateUser(null));
             store.dispatch(updateMessage(null));
             store.dispatch(removeAllCredentials());
-            store.dispatch(updateActiveView(null));
             SessionManager.removeUserData();
             break;
         default:

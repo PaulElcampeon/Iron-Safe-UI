@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import CredentialListItem from '../viewItems/credentialListItem';
-import { updateActiveView, logoutAction } from '../../store/actions/index';
-import CustomNavbar from '../viewItems/customNavbar';
+import { logoutAction } from '../../store/actions/index';
+import { Link } from 'react-router-dom'
 
 export class Lobby extends React.Component {
     
@@ -12,18 +12,20 @@ export class Lobby extends React.Component {
     }
 
     render() {
-        this.props.updateSelectedView()
         const { credentials, user, loggedIn} = this.props;
         return (
             <div>
-                <CustomNavbar history={this.props.history} subtitles={['lobby', 'add-credential','logout']}/>
                 {!loggedIn ? <Redirect push to="/"/> 
                 : 
-                    <div>
-                        <h1>Welcome {user} </h1>
-                        {credentials && credentials.map((element, index) => {
-                            return <CredentialListItem key={element.key} credential={element} />
-                        })}
+                    <div className={"lobbyPanel"}>
+                        <h1 className={"welcome-message"}>Welcome {user} </h1>
+                        <h1 className={"panel-title"}>Credentials</h1>
+                        <ul className={"credential-list"}>
+                            {credentials && credentials.map((element, index) => {
+                                return <CredentialListItem key={element.key} credential={element} />
+                            })}
+                        </ul>
+                        <Link className={"linkButton"} to={'/add-credential'}>Add Credential</Link>
                     </div>
                 }
             </div>
@@ -42,9 +44,6 @@ export const mapStateToProps = (state) => {
 
 export const mapDispatchToProps = (dispatch) => {
     return {
-        updateSelectedView: () => {
-            dispatch(updateActiveView("lobby"));
-        },
         attemptLogout: () => {
             dispatch(logoutAction());
         }

@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { UserTextInput } from '../viewItems/userTextInput';
 import { registerAction } from '../../store/actions/index';
 import resetMessage from '../../utils/resetMessage';
-import CustomNavbar from '../viewItems/customNavbar';
-
+import { Link } from 'react-router-dom'
 
 export class Register extends Component {
     constructor(props) {
@@ -35,14 +34,14 @@ export class Register extends Component {
         const { email, confirmemail, password, confirmpassword} = this.state;
         return (
             <div>
-                <CustomNavbar  history={this.props.history} subtitles={['login','register']}/>
                 <div className={"registrationPanel"}>
-                    <h1>Registration</h1>
+                    <h1 className={"panel-title"}>Registration</h1>
                     <UserTextInput handleChange={this.handleChange} label="Email" value={email} type="email" />
                     <UserTextInput handleChange={this.handleChange} label="Confirm Email" value={confirmemail} type="email" />
                     <UserTextInput handleChange={this.handleChange} label="Password" value={password} type="password" />
                     <UserTextInput handleChange={this.handleChange} label="Confirm Password" value={confirmpassword} type="password" />
                     <input type="submit" onClick={this.onClick} value="Register"/>
+                    <Link className={"links"} to={'/login'}>Login</Link>
                 </div>
             </div>
         )
@@ -51,7 +50,6 @@ export class Register extends Component {
 
 export const mapStateToProps = (state) => {
     return {
-        activeView: state.activeView,
     }
 }
 

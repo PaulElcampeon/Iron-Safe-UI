@@ -18,33 +18,34 @@ code {
 
 .navbar {
   border-bottom: 5px solid rgb(156, 138, 138);
-  display: flex;
 }
 
-.navbarTitle {
-  width: 30%;
-  font-size: 40px;
-  font-weight: bold;
-}
-
-.navbarItem {
+.logout-nav {
   cursor: pointer;
-  margin: auto;
-  width: 20%;
+  display: inline;
 }
 
-.navbarItem:hover {
-  background-color: grey;
+.nav-item {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 2em;
+  padding: 0 1em 0 1em;
+  margin-right: 1em;
+}
+
+.nav-item:hover {
+  background-color: black;
   color: white;
 }
 
-.highlighted-navbarItem {
-  background-color: black;
+.panel-title {
+  text-align: center;
 }
 
 .loginPanel {
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
@@ -58,7 +59,7 @@ code {
 
 .registrationPanel {
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
@@ -72,33 +73,56 @@ code {
 
 .createPanel {
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 400px;
+  width: 80vw;
   height: 300px;
   text-align: center; 
+}
 
+.welcome-message {
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .textInputs {
   text-align: center;
-  margin-bottom: 20px;
-  height: 40px;
-  width: 70%;
+  margin-bottom: 5%;
+  height: 3em;
+  width: 60%;
+  min-width: 200px;
 }
 
 .links {
-  font-size: 12px;
+  font-size: 80%;
+  display: block;
+  text-align: center;
+  color: black;
+  margin-top: 5%;
+}
+
+.linkButton {
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+  text-decoration: none;
+  display: block;
+  background-color: black;
+  color: white;
+  border: 2px solid grey;
+  width: 150px;
+  padding: 1em;
 }
 
 .generalMessageModal {
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   background-color: white;
   border: 5px solid black;
@@ -111,10 +135,19 @@ code {
   height: 300px;
   text-align: center; 
   z-index: 2; 
+  padding: 5%;
+}
+
+.credential-list {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  padding: 0;
 }
 
 .credentialListItem {
   display: flex;
+  justify-content: center;
 }
 
 .credentialListItem > .key {
@@ -122,10 +155,10 @@ code {
   background-color: black;
   border: 2px solid grey;
   color: white;
-  padding: 5px;
+  padding: 0.5em;
   width: 200px;
   text-align: center;
-  font-size: 20px;
+  font-size: 1em;
   font-weight: bold;
 }
 
@@ -133,16 +166,17 @@ code {
   background-color: black;
   border: 2px solid grey;
   color: white;
-  padding: 5px;
+  padding: 0.5em;
   width: 150px;
   text-align: center;
 }
 
 .credentialListItem > .remove {
   cursor: pointer;
+  font-size: 0.8em;
   background-color: red;
   border: 2px solid grey;
-  padding: 5px;
+  padding: 0.5em;
   width: 100px;
   text-align: center;
   color: white;
@@ -159,4 +193,59 @@ code {
 
 .hide {
   display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  body {
+    background-color: lightblue;
+  }
+
+  .panel-title {
+    font-size: 1.5em;
+  }
+
+  .generalMessageModal {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .welcome-message {
+    font-size: 1em;
+  } 
+
+  .credentialListItem > .key {
+    font-size: 0.8em;
+  }
+  
+  .credentialListItem > .value {
+    font-size: 0.8em;
+  }
+  
+  .credentialListItem > .remove {
+    font-size: 0.6em;
+  }
+
+  .nav-item {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  body {
+    background-color: lightpink;
+  }
+
+  .nav-item {
+    font-size: 1.2em;
+  }
+}
+
+@media only screen and (max-width: 270px) {
+  body {
+    background-color: lightseagreen;
+  }
+
+  .nav-item {
+    font-size: 1em;
+  }
 }

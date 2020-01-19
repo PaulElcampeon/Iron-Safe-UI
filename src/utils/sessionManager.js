@@ -19,7 +19,6 @@ class SessionManager {
     }
 
     static removeUserData = () => {
-        console.log(this.unsubscribeListener)
         this.unsubscribeListener();
         sessionStorage.removeItem('Iron-Safe')
     }
@@ -28,7 +27,6 @@ class SessionManager {
         this.unsubscribeListener = store.subscribe(()=> {
             sessionStorage.setItem('Iron-Safe', JSON.stringify(store.getState()));
         })
-        console.log(this.unsubscribeListener)
     }
 
     static restoreSession = () => {

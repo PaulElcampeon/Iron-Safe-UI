@@ -1,9 +1,9 @@
 import React from 'react';
-import { addCredentialDB, updateActiveView } from '../../store/actions/index';
+import { addCredentialDB } from '../../store/actions/index';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import resetMessage from '../../utils/resetMessage';
-import CustomNavbar from '../viewItems/customNavbar';
+import { Link } from 'react-router-dom'
 
 export class CreateCredentialView extends React.Component {
     constructor(props) {
@@ -35,19 +35,18 @@ export class CreateCredentialView extends React.Component {
     }
 
     render(){
-        this.props.updateSelectedView();
         const { loggedIn } = this.props
         return (
             <div>
-                <CustomNavbar  history={this.props.history} subtitles={['lobby', 'add-credential','logout']}/>
                 {!loggedIn ? <Redirect push to="/"/> 
                 :
                 <div className={'createPanel'}>
-                    <h1>Create Credential</h1>
+                    <h1 className={"panel-title"}>Create Credential</h1>
                     <input className={'textInputs'} type='text' name='key' value={this.state.key} onChange={this.handleChange} placeholder="key"/>
                     <input className={'textInputs'} type='text' name='value'  value={this.state.value} onChange={this.handleChange} placeholder="value"/>
                     <br />
                     <input type='submit' value="add" onClick={this.onClick}/>
+                    <Link className={"links"} to={'/credentials'}>lobby</Link>
                 </div>
                 }
             </div>
@@ -66,9 +65,6 @@ export const mapDispatchToProps = (dispatch) => {
     return {
         addCredential: (credential) => {
             dispatch(addCredentialDB(credential))
-        },
-        updateSelectedView: () => {
-            dispatch(updateActiveView("add-credential"))
         }
     }
 }

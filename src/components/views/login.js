@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { UserTextInput } from '../viewItems/userTextInput';
 import { loginAction } from '../../store/actions/index';
 import resetMessage from '../../utils/resetMessage';
-import CustomNavbar from '../viewItems/customNavbar';
+import { Link } from 'react-router-dom'
 
 export class Login extends React.Component {
     constructor(props) {
@@ -33,17 +33,18 @@ export class Login extends React.Component {
 
     render() {
         const {email, password} = this.state;
+        const {loggedIn} = this.props;
         return (
             <div>
-                <CustomNavbar  history={this.props.history} subtitles={['login','register']}/>
-                {this.props.activeView === "lobby" ? <Redirect push to="/lobby" />
+                {loggedIn? <Redirect push to="/credentials" />
                     :
                     (
                         <div className={'loginPanel'}>
-                            <h1>Login</h1>
+                            <h1 className={"panel-title"}>Login</h1>
                             <UserTextInput handleChange={this.handleChange} value={email} label="Email" type="email" />
                             <UserTextInput handleChange={this.handleChange} value={password} label="Password" type="password" />
                             <input type="submit" onClick={this.onClick} value="Login"/>
+                            <Link className={"links"} to={'/register'}>Register</Link>
                         </div>
                     )
                 }
@@ -55,6 +56,7 @@ export class Login extends React.Component {
 export const mapStateToProps = (state) => {
     return {
         activeView: state.activeView,
+        loggedIn: state.loggedIn
     }
 }
 

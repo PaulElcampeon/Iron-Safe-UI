@@ -7,7 +7,6 @@ export const LOGIN = 'LOGIN'; //should be a middleware
 export const LOGOUT = 'LOGOUT';//should be a middleware
 export const REGISTER = 'REGISTER';//should be a middleware
 export const LOGGED_IN = 'LOGGED_IN';
-export const ACTIVE_VIEW = 'ACTIVE_VIEW';
 export const UPDATE_USER = 'UPDATE_USER';
 export const UPDATE_MESSAGE = 'UPDATE_MESSAGE';
 export const UPDATE_CREDENTIALS = 'UPDATE_CREDENTIALS';
@@ -100,12 +99,5 @@ export const loggedInAction = (loggedIn) => {
     return {
         type: LOGGED_IN,
         loggedIn: loggedIn
-    }
-}
-
-export const updateActiveView = (view) => {
-    return {
-        type: ACTIVE_VIEW,
-        activeView: view
     }
 }
