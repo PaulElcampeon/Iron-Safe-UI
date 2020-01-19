@@ -106,8 +106,23 @@ code {
   margin-top: 5%;
 }
 
+.links:hover {
+  font-weight: bold;
+}
+
+.formBtn {
+  padding: 0.5em 1.2em;
+  background-color: black;
+  color: white;
+}
+
+.formBtn:hover {
+  background-color: white;
+  color: black;
+}
+
 .linkButton {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: bold;
   text-align: center;
   margin: auto;
@@ -116,8 +131,15 @@ code {
   background-color: black;
   color: white;
   border: 2px solid grey;
-  width: 150px;
-  padding: 1em;
+  max-width: 180px;
+  width: 30vw;
+  min-width: 100px;
+  padding: 1em 0em;
+}
+
+.linkButton:hover {
+  background-color: white;
+  color: black;
 }
 
 .generalMessageModal {
@@ -182,9 +204,14 @@ code {
   color: white;
 }
 
-.credentialListItemIcon {
-  width: 50px;
-  height :50px;
+.credentialListItem > .key:hover {
+  background-color: white;
+  color: black;
+}
+
+.credentialListItem > .remove:hover {
+  font-weight: bold;
+  background-color: rgb(238, 76, 76);
 }
 
 .show {

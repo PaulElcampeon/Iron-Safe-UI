@@ -43,7 +43,7 @@ export class Login extends React.Component {
                             <h1 className={"panel-title"}>Login</h1>
                             <UserTextInput handleChange={this.handleChange} value={email} label="Email" type="email" />
                             <UserTextInput handleChange={this.handleChange} value={password} label="Password" type="password" />
-                            <input type="submit" onClick={this.onClick} value="Login"/>
+                            <input className={"formBtn"} type="submit" onClick={this.onClick} value="Login"/>
                             <Link className={"links"} to={'/register'}>Register</Link>
                         </div>
                     )

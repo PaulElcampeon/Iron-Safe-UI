@@ -45,8 +45,8 @@ export class CreateCredentialView extends React.Component {
                     <input className={'textInputs'} type='text' name='key' value={this.state.key} onChange={this.handleChange} placeholder="key"/>
                     <input className={'textInputs'} type='text' name='value'  value={this.state.value} onChange={this.handleChange} placeholder="value"/>
                     <br />
-                    <input type='submit' value="add" onClick={this.onClick}/>
-                    <Link className={"links"} to={'/credentials'}>lobby</Link>
+                    <input className="formBtn" type='submit' value="Add" onClick={this.onClick}/>
+                    <Link className={"links"} to={'/credentials'}>Lobby</Link>
                 </div>
                 }
             </div>

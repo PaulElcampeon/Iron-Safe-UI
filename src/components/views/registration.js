@@ -40,7 +40,7 @@ export class Register extends Component {
                     <UserTextInput handleChange={this.handleChange} label="Confirm Email" value={confirmemail} type="email" />
                     <UserTextInput handleChange={this.handleChange} label="Password" value={password} type="password" />
                     <UserTextInput handleChange={this.handleChange} label="Confirm Password" value={confirmpassword} type="password" />
-                    <input type="submit" onClick={this.onClick} value="Register"/>
+                    <input className={"formBtn"} type="submit" onClick={this.onClick} value="Register"/>
                     <Link className={"links"} to={'/login'}>Login</Link>
                 </div>
             </div>
