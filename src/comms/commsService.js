@@ -1,5 +1,3 @@
-const BASE_URL = 'http://localhost:8080/';
-
 export const addCredential = (credential, token) => {
     return fetch('/safe/add/credential', {
         method: 'post',
