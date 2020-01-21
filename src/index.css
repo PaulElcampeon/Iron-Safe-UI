@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: grey;
 }
 
 * {
@@ -17,7 +18,8 @@ code {
 }
 
 .navbar {
-  border-bottom: 5px solid rgb(156, 138, 138);
+  border-bottom: 5px solid rgb(255, 255, 255);
+  background-color: black;
 }
 
 .logout-nav {
@@ -27,7 +29,7 @@ code {
 
 .nav-item {
   text-decoration: none;
-  color: black;
+  color: white;
   font-weight: bold;
   font-size: 2em;
   padding: 0 1em 0 1em;
@@ -45,13 +47,13 @@ code {
 
 .loginPanel {
   position: fixed;
-  top: 30%;
+  top: 40%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -30%);
+  -moz-transform: translate(-50%, -30%);
+  -ms-transform: translate(-50%, -30%);
+  -o-transform: translate(-50%, -30%);
+  transform: translate(-50%, -30%);
   width: 400px;
   height: 300px;
   text-align: center;  
@@ -59,13 +61,13 @@ code {
 
 .registrationPanel {
   position: fixed;
-  top: 30%;
+  top: 40%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -30%);
+  -moz-transform: translate(-50%, -30%);
+  -ms-transform: translate(-50%, -30%);
+  -o-transform: translate(-50%, -30%);
+  transform: translate(-50%, -30%);
   width: 400px;
   height: 300px;
   text-align: center; 
@@ -73,13 +75,13 @@ code {
 
 .createPanel {
   position: fixed;
-  top: 30%;
+  top: 40%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -30%);
+  -moz-transform: translate(-50%, -30%);
+  -ms-transform: translate(-50%, -30%);
+  -o-transform: translate(-50%, -30%);
+  transform: translate(-50%, -30%);
   width: 80vw;
   height: 300px;
   text-align: center; 
@@ -140,6 +142,7 @@ code {
 .linkButton:hover {
   background-color: white;
   color: black;
+  border: 2px solid black;
 }
 
 .generalMessageModal {
@@ -175,7 +178,7 @@ code {
 .credentialListItem > .key {
   cursor: pointer;
   background-color: black;
-  border: 2px solid grey;
+  border: 2px solid white;
   color: white;
   padding: 0.5em;
   width: 200px;
@@ -186,7 +189,7 @@ code {
 
 .credentialListItem > .value {
   background-color: black;
-  border: 2px solid grey;
+  border: 2px solid white;
   color: white;
   padding: 0.5em;
   width: 150px;
@@ -197,7 +200,7 @@ code {
   cursor: pointer;
   font-size: 0.8em;
   background-color: red;
-  border: 2px solid grey;
+  border: 2px solid white;
   padding: 0.5em;
   width: 100px;
   text-align: center;
@@ -207,6 +210,7 @@ code {
 .credentialListItem > .key:hover {
   background-color: white;
   color: black;
+  border: 2px solid black;
 }
 
 .credentialListItem > .remove:hover {
@@ -223,9 +227,9 @@ code {
 }
 
 @media only screen and (max-width: 500px) {
-  body {
+  /* body {
     background-color: lightblue;
-  }
+  } */
 
   .panel-title {
     font-size: 1.5em;
@@ -258,9 +262,9 @@ code {
 }
 
 @media only screen and (max-width: 350px) {
-  body {
+  /* body {
     background-color: lightpink;
-  }
+  } */
 
   .nav-item {
     font-size: 1.2em;
@@ -268,9 +272,9 @@ code {
 }
 
 @media only screen and (max-width: 270px) {
-  body {
+  /* body {
     background-color: lightseagreen;
-  }
+  } */
 
   .nav-item {
     font-size: 1em;
